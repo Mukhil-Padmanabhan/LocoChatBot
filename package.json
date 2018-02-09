@@ -1,0 +1,15 @@
+{
+  "name": "chatapp",
+  "version": "1.0.0",
+  "description": "Printing time stamps of the future and displying them when the time comes",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Mukhil.Padmanabhan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^2.0.4"
+  }
+}
