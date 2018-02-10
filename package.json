@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.15.2",
+    "mongodb": "^3.0.2",
     "node-cron": "^1.2.1",
     "nodemon": "^1.14.12",
     "socket.io": "^2.0.4"
