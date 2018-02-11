@@ -22,7 +22,7 @@ http.listen(port, function(){
          socket.emit('status', status);
         }
         var query = {
-            "date":{"$lte": new Date()}
+            //"date":{"$lte": new Date()}
         }
         new cron.schedule('0,30 * * * * *', function () {
             console.log("CRON running....")

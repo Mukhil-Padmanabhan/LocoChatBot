@@ -3,7 +3,16 @@ function handleDbEvents(collection, action, query, eventName, socket) {
         case 'find':{
             collection.find(query).limit(100).toArray((err, res) =>{
             if(err) throw err;
-            socket.emit(eventName, res);      
+             var newRews=[];
+            if(res && res.length){
+                res.map((obj)=>{
+                    if(obj.date && (new Date(obj.date)-new Date()<0)){
+                    newRews.push(obj);
+                    }
+                });
+            }
+            console.log("newRews", newRews);
+            socket.emit(eventName, newRews);
             });
             break;
         }
