@@ -13,7 +13,7 @@ app.get('/', function(req, res){
 var port = process.env.PORT || 3000;
 http.listen(port, function(){
 
-    mongo.connect('mongodb://127.0.0.1/mongochat', function(err, db){   // Connect to mongo .       mongodb://mukhil:mukhil@ds231658.mlab.com:31658/locochat
+    mongo.connect('mongodb://mukhil:mukhil@ds231658.mlab.com:31658/locochat', function(err, db){   // Connect to mongo .  mongodb://127.0.0.1/mongochat     mongodb://mukhil:mukhil@ds231658.mlab.com:31658/locochat
         if(err) throw err;
         client.on('connection', function(socket){
          const myAwesomeDB = db.db('locochat')
