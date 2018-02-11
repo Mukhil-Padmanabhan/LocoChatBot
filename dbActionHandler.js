@@ -1,15 +1,15 @@
 function handleDbEvents(collection, action, query, eventName, socket) {
     switch(action){
         case 'find':{
-            var temp2 = [];
             collection.find(query).limit(100).toArray((err, res) =>{
-                if(err) throw err;
-                socket.emit(eventName, res);      
+            if(err) throw err;
+            socket.emit(eventName, res);      
             });
             break;
         }
         case 'insert': {
             var temp = [];
+            console.log("jere")
             collection.insert(query, (err, data)=>{
                 temp.push(query)
                 var temp1 = temp.map(function(info){

@@ -11,11 +11,13 @@ var dbAction = require('./dbActionHandler.js')
 app.get('/', function(req, res){    
   res.sendFile(__dirname + '/index.html');
 });
-http.listen(3000, function(){
-    mongo.connect('mongodb://127.0.0.1/mongochat', function(err, db){   // Connect to mongo
+var port = process.env.PORT || 3000;
+http.listen(port, function(){
+
+    mongo.connect('mongodb://mukhil:mukhil@ds231658.mlab.com:31658/locochat', function(err, db){   // Connect to mongo mongodb://127.0.0.1/mongochat
         if(err) throw err;
         client.on('connection', function(socket){
-         const myAwesomeDB = db.db('mongochat')
+         const myAwesomeDB = db.db('locochat')
          var chat = myAwesomeDB.collection('chats');
          sendStatus = function(status) {
          socket.emit('status', status);
