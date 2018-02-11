@@ -4,7 +4,7 @@
   "description": "Printing time stamps of the future and displying them when the time comes",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "author": "Mukhil.Padmanabhan",
   "license": "ISC",
@@ -12,7 +12,6 @@
     "express": "^4.15.2",
     "mongodb": "^3.0.2",
     "node-cron": "^1.2.1",
-    "nodemon": "^1.14.12",
     "socket.io": "^2.0.4"
   }
 }

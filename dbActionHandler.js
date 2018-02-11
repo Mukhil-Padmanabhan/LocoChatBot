@@ -9,7 +9,6 @@ function handleDbEvents(collection, action, query, eventName, socket) {
         }
         case 'insert': {
             var temp = [];
-            console.log("jere")
             collection.insert(query, (err, data)=>{
                 temp.push(query)
                 var temp1 = temp.map(function(info){
