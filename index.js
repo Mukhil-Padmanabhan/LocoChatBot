@@ -42,7 +42,7 @@ http.listen(port, function(){
                 var toInsert = {
                     name: name, 
                     message: message, 
-                    date: new Date(date).toUTCString()
+                    date: date
             }
                 dbAction.dbController(chat, 'insert' , toInsert , 'output', socket);
                 sendStatus({
