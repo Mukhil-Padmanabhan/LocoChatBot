@@ -6,7 +6,7 @@ function handleDbEvents(collection, action, query, eventName, socket) {
              var newRews=[];
             if(res && res.length){
                 res.map((obj)=>{
-                    if(obj.date && (new Date(obj.date) - new Date() < 0)){
+                    if(obj.date && (new Date(obj.date)-new Date()<0)){
                     newRews.push(obj);
                     }
                 });

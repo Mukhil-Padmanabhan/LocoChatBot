@@ -12,8 +12,7 @@ app.get('/', function(req, res){
 });
 var port = process.env.PORT || 3000;
 http.listen(port, function(){
-
-    mongo.connect('mongodb://mukhil:mukhil@ds231658.mlab.com:31658/locochat', function(err, db){   // Connect to mongo .  mongodb://127.0.0.1/mongochat     mongodb://mukhil:mukhil@ds231658.mlab.com:31658/locochat
+    mongo.connect('mongodb://mukhil:mukhil@ds157818.mlab.com:57818/locochat', function(err, db){   // Connect to mongo .  mongodb://127.0.0.1/mongochat     mongodb://mukhil:mukhil@ds231658.mlab.com:31658/locochat
         if(err) throw err;
         client.on('connection', function(socket){
          const myAwesomeDB = db.db('locochat')
@@ -26,8 +25,8 @@ http.listen(port, function(){
         }
         new cron.schedule('0,30 * * * * *', function () {
             console.log("CRON running....")
-            dbAction.dbController(chat, 'find' , query , 'output', socket);
             socket.emit('cleared');   
+            dbAction.dbController(chat, 'find' , query , 'output', socket);     
         });
         dbAction.dbController(chat, 'find' , query , 'output', socket);
             
@@ -42,7 +41,7 @@ http.listen(port, function(){
                 var toInsert = {
                     name: name, 
                     message: message, 
-                    date: date
+                    date: new Date(date).toUTCString()
             }
                 dbAction.dbController(chat, 'insert' , toInsert , 'output', socket);
                 sendStatus({
@@ -54,7 +53,7 @@ http.listen(port, function(){
         socket.on('clear', function(data){
             chat.remove({}, function(){
                 socket.emit('cleared');
-            });
+            }) ;
         });
         });
     });
